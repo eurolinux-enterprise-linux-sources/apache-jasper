@@ -36,7 +36,7 @@
 
 Name: apache-jasper
 Version: 5.5.28
-Release: 3%{dist}
+Release: 5%{?dist}
 Summary: Jasper OSGi Bundle
 Group: Development
 License: ASL 2.0
@@ -55,7 +55,7 @@ BuildRoot: %{_tmppath}/%{name}-%{epoch}-%{version}-%{release}-root
 BuildArch: noarch
 
 Buildrequires: jpackage-utils >= 0:1.7.4
-BuildRequires: java-1.6.0-devel
+BuildRequires: java-devel
 BuildRequires: ant >= 0:1.6.5
 BuildRequires: ecj >= 0:3.3.1.1
 BuildRequires: jakarta-commons-logging >= 0:1.0.4
@@ -66,7 +66,7 @@ Requires: jakarta-commons-logging >= 0:1.0.4
 Requires: jakarta-commons-el >= 0:1.0
 Requires: ecj >= 0:3.3.1.1
 Requires: jpackage-utils >= 0:1.7.4
-Requires: java-1.6.0-devel
+Requires: java-devel
 Requires: apache-tomcat-apis
 
 %description
@@ -161,6 +161,14 @@ popd
 %{_javadocdir}/%{name}
 
 %changelog
+* Tue Nov 08 2016 Jeff Johnston <jjohnstn@redhat.com> 5.5.28-5
+- Fix typo in dist tag.
+- Resolves: #rhbz1282623
+
+* Tue Nov 01 2016 Jeff Johnston <jjohnstn@redhat.com> 5.5.28-4
+- Fix BR and REQUIRES to use java-devel instead of java-1.6.0-devel
+- Resolves: #rhbz1282623
+
 * Thu Feb 04 2010 Andrew Overholt <overholt@redhat.com> 5.5.28-3
 - Trim BRs/Rs.
 
